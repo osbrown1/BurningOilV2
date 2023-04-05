@@ -1,13 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Enemy : MonoBehaviour
 {
+
+    [SerializeField] private AudioSource deathSoundEffect;
     public Animator animator;
+
+    
 
     public int maxHealth = 100;
     int currentHealth;
+
+    
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +42,8 @@ public class Enemy : MonoBehaviour
     }
     void Die()
     {
+
+        
         Debug.Log("Enemy died!");
 
         animator.SetBool("IsDead", true);
@@ -43,6 +52,7 @@ public class Enemy : MonoBehaviour
         GetComponent<Rigidbody2D>().simulated = false;
 
         this.enabled = false;
+        deathSoundEffect.Play();
     }
 
 }

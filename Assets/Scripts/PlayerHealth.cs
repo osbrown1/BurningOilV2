@@ -1,10 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
+    private Animator anim;
+
     [SerializeField] private int playerHealth = 100;
+    [SerializeField] private AudioSource deathSoundEffect;
+
 
     private int MAX_HEALTH = 100;
 
@@ -58,6 +63,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void Die()
     {
+        deathSoundEffect.Play();
         Debug.Log("I am Dead!");
         Destroy(gameObject);
     }

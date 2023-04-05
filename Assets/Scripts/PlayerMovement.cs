@@ -10,6 +10,10 @@ public class PlayerMovement : MonoBehaviour
     private Animator anim;
 
     [SerializeField] private LayerMask jumpableGround;
+    [SerializeField] private AudioSource jumpSoundEffect;
+    
+    
+
 
     private float dirX = 0f;
     [SerializeField] private float moveSpeed = 7f;
@@ -39,11 +43,13 @@ public class PlayerMovement : MonoBehaviour
         {
             if (IsGrounded()) // check if player is on the ground
             {
+                jumpSoundEffect.Play();
                 rb.velocity = new Vector2(rb.velocity.x, jumpForce);
                 hasJumped = false;
             }
             else if (!hasJumped) // Checks if player has not already double jumped
             {
+                jumpSoundEffect.Play();
                 rb.velocity = new Vector2(rb.velocity.x, jumpForce);
                 hasJumped = true;
             }
