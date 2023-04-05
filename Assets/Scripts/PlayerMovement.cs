@@ -11,15 +11,12 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private LayerMask jumpableGround;
     [SerializeField] private AudioSource jumpSoundEffect;
-    
-    
-
 
     private float dirX = 0f;
     [SerializeField] private float moveSpeed = 7f;
     [SerializeField] private float jumpForce = 14f;
 
-    private bool hasJumped = false; 
+    private bool hasJumped = false;
 
     private enum MovementState { idle, run, jump, combatIdle, attack, hurt, recover, death }
 
@@ -53,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
                 rb.velocity = new Vector2(rb.velocity.x, jumpForce);
                 hasJumped = true;
             }
-           
+
         }
 
         UpdateAnimationState();
@@ -94,3 +91,4 @@ public class PlayerMovement : MonoBehaviour
     }
 
 }
+
