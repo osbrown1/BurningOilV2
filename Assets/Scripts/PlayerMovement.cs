@@ -15,6 +15,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float moveSpeed = 7f;
     [SerializeField] private float jumpForce = 14f;
 
+    private bool hasJumped = false; 
+
     private enum MovementState { idle, run, jump, combatIdle, attack, hurt, recover, death }
 
     // Start is called before the first frame update
@@ -33,9 +35,19 @@ public class PlayerMovement : MonoBehaviour
         dirX = Input.GetAxisRaw("Horizontal");
         rb.velocity = new Vector2(dirX * moveSpeed, rb.velocity.y);
 
-        if (Input.GetButtonDown("Jump") && IsGrounded())
+        if (Input.GetButtonDown("Jump"))
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            if (IsGrounded()) // check if player is on the ground
+            {
+                rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+                hasJumped = false;
+            }
+            else if (!hasJumped) // Checks if player has not already double jumped
+            {
+                rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+                hasJumped = true;
+            }
+           
         }
 
         UpdateAnimationState();
