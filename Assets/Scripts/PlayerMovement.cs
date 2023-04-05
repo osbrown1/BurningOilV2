@@ -10,14 +10,13 @@ public class PlayerMovement : MonoBehaviour
     private Animator anim;
 
     [SerializeField] private LayerMask jumpableGround;
-
     [SerializeField] private AudioSource jumpSoundEffect;
 
     private float dirX = 0f;
     [SerializeField] private float moveSpeed = 7f;
     [SerializeField] private float jumpForce = 14f;
 
-    private bool hasJumped = false; 
+    private bool hasJumped = false;
 
     private enum MovementState { idle, run, jump, combatIdle, attack, hurt, recover, death }
 
@@ -41,18 +40,17 @@ public class PlayerMovement : MonoBehaviour
         {
             if (IsGrounded()) // check if player is on the ground
             {
-
+                jumpSoundEffect.Play();
                 rb.velocity = new Vector2(rb.velocity.x, jumpForce);
                 hasJumped = false;
-                jumpSoundEffect.Play();
             }
             else if (!hasJumped) // Checks if player has not already double jumped
             {
+                jumpSoundEffect.Play();
                 rb.velocity = new Vector2(rb.velocity.x, jumpForce);
                 hasJumped = true;
-                jumpSoundEffect.Play();
             }
-           
+
         }
 
         UpdateAnimationState();
@@ -93,3 +91,4 @@ public class PlayerMovement : MonoBehaviour
     }
 
 }
+

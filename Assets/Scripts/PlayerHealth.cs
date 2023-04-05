@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
+
+    public Animator animator;
+
     [SerializeField] private int playerHealth = 100;
 
     private int MAX_HEALTH = 100;
@@ -11,14 +14,15 @@ public class PlayerHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.J))
         {
-            // Damage(10);
+            Damage(10);
+
         }
 
         if (Input.GetKeyDown(KeyCode.H))
         {
-            // Heal(10);
+            Heal(10);
         }
     }
 
@@ -35,7 +39,19 @@ public class PlayerHealth : MonoBehaviour
         {
             Die();
         }
+        else
+        {
+            animator.SetBool("IsHurt", true);
+            StartCoroutine(ResetIsHurtBool());
+        }
     }
+
+    private IEnumerator ResetIsHurtBool()
+    {
+        yield return new WaitForSeconds(.1f);
+        animator.SetBool("IsHurt", false);
+    }
+
 
     public void Heal(int amount)
     {
@@ -58,7 +74,12 @@ public class PlayerHealth : MonoBehaviour
 
     private void Die()
     {
-        Debug.Log("I am Dead!");
-        Destroy(gameObject);
+        animator.SetBool("IsHurt", false);
+        animator.SetBool("IsDead", true);
+
+        GetComponent<Collider2D>().enabled = false;
+        GetComponent<Rigidbody2D>().simulated = false;
+
+        this.enabled = false;
     }
 }
