@@ -6,7 +6,7 @@ public class PlayerAttack : MonoBehaviour
 {
 
     private GameObject attackArea = default;
-
+    [SerializeField] private AudioSource hitSoundEffect;
     private bool attacking = false;
 
     private float timeToAttack = 0.25f;
@@ -34,12 +34,14 @@ public class PlayerAttack : MonoBehaviour
                 timer = 0;
                 attacking = false;
                 attackArea.SetActive(attacking);
+                hitSoundEffect.Play();
             }
         }
     }
 
     private void Attack()
     {
+        
         attacking = true;
         attackArea.SetActive(attacking);
     }

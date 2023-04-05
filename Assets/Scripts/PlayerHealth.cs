@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
-
     public Animator animator;
+    private Animator anim;
 
     [SerializeField] private int playerHealth = 100;
+    [SerializeField] private AudioSource deathSoundEffect;
+
 
     private int MAX_HEALTH = 100;
 
@@ -17,7 +20,6 @@ public class PlayerHealth : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.J))
         {
             Damage(10);
-
         }
 
         if (Input.GetKeyDown(KeyCode.H))
