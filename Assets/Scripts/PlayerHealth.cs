@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class PlayerHealth : MonoBehaviour
 
     [SerializeField] private int playerHealth = 100;
     [SerializeField] private AudioSource deathSoundEffect;
+    [SerializeField] private Text healthText;
 
 
     private int MAX_HEALTH = 100;
@@ -45,6 +47,7 @@ public class PlayerHealth : MonoBehaviour
         {
             animator.SetBool("IsHurt", true);
             StartCoroutine(ResetIsHurtBool());
+            UpdateHealthText();
         }
     }
 
@@ -72,6 +75,19 @@ public class PlayerHealth : MonoBehaviour
         {
             this.playerHealth += amount;
         }
+
+        UpdateHealthText();
+    }
+
+    private void UpdateHealthText()
+    {
+        if (healthText == null)
+        {
+            Debug.LogError("Health text not set in the inspector.");
+            return;
+        }
+
+        healthText.text = "Health: " + playerHealth.ToString();
     }
 
     private void Die()
@@ -80,9 +96,13 @@ public class PlayerHealth : MonoBehaviour
         animator.SetBool("IsDead", true);
 
         deathSoundEffect.Play();
+
         GetComponent<Collider2D>().enabled = false;
         GetComponent<Rigidbody2D>().simulated = false;
 
         this.enabled = false;
+
     }
+
+
 }
