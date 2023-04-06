@@ -9,6 +9,8 @@ public class PlayerHealth : MonoBehaviour
     public Animator animator;
     private Animator anim;
 
+    public bool isDead = false;
+
     [SerializeField] private int playerHealth = 100;
     [SerializeField] private AudioSource deathSoundEffect;
     [SerializeField] private Text healthText;
@@ -87,15 +89,20 @@ public class PlayerHealth : MonoBehaviour
             return;
         }
 
+
         healthText.text = "Health: " + playerHealth.ToString();
     }
 
     private void Die()
     {
+        isDead = true;
+        healthText.text = "Dead!!!";
+
         animator.SetBool("IsHurt", false);
         animator.SetBool("IsDead", true);
 
         deathSoundEffect.Play();
+
 
         GetComponent<Collider2D>().enabled = false;
         GetComponent<Rigidbody2D>().simulated = false;
