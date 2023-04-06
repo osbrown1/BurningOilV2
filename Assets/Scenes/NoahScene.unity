@@ -96765,7 +96765,7 @@ MonoBehaviour:
   attackDamage: 20
   enragedAttackDamage: 40
   attackOffset: {x: -1.42, y: -0.17, z: 0}
-  attackRange: 1.7
+  attackRange: 1.8
   attackMask:
     serializedVersion: 2
     m_Bits: 512
@@ -96811,7 +96811,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.19055676, y: -0.295784}
+  m_Offset: {x: 0.033026934, y: -0.44119573}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -96822,7 +96822,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.543799, y: 3.0364528}
+  m_Size: {x: 2.2287393, y: 2.7456293}
   m_EdgeRadius: 0
 --- !u!50 &1480023937
 Rigidbody2D:
