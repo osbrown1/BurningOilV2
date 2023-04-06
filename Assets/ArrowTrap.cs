@@ -18,9 +18,11 @@ public class ArrowTrap : MonoBehaviour
         fireballs[FindFireball()].GetComponent<EnemyProjectile>().ActivateProjectile();
     }
 
+
     private int FindFireball()
     {
-        for (int i = 0; i < fireballs.Length; i++)
+        int i = 0;
+        while (i < 5)
         {
             if (!fireballs[i].activeInHierarchy)
                 return i;
