@@ -11,7 +11,6 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private int playerHealth = 100;
     [SerializeField] private AudioSource deathSoundEffect;
 
-
     private int MAX_HEALTH = 100;
 
     // Update is called once per frame
