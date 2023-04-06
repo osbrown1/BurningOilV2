@@ -64,12 +64,12 @@ public class PlayerMovement : MonoBehaviour
         if (dirX > 0f)
         {
             state = MovementState.run;
-            sprite.flipX = true;
+            sprite.transform.localScale = new Vector3(-1, 1, 0);
         }
         else if (dirX < 0f)
         {
             state = MovementState.run;
-            sprite.flipX = false;
+            sprite.transform.localScale = new Vector3(1, 1, 0);
         }
         else
         {
@@ -85,7 +85,7 @@ public class PlayerMovement : MonoBehaviour
         anim.SetInteger("state", (int)state);
     }
 
-    public bool IsGrounded()
+    private bool IsGrounded()
     {
         return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, jumpableGround);
     }

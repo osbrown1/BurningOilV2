@@ -7,7 +7,7 @@ public class BossHealth : MonoBehaviour
 
     public int health = 200;
 
-    public GameObject deathEffect;
+    //public GameObject deathEffect;
 
     public bool isInvulnerable = false;
 
@@ -32,7 +32,12 @@ public class BossHealth : MonoBehaviour
 
     void Die()
     {
-        Instantiate(deathEffect, transform.position, Quaternion.identity);
+        //Instantiate(deathEffect, transform.position, Quaternion.identity);
+
+        GetComponent<Collider2D>().enabled = false;
+        GetComponent<Rigidbody2D>().simulated = false;
+
+        this.enabled = false;
         Destroy(gameObject);
     }
 
