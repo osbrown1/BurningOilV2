@@ -78,4 +78,4 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-Copyright (c) _2023_ _Noah Atkinson_,_Owen Brown_,_John Lenz_,_Mitchell Gantz,_Justin Lee_
+Copyright (c) _2023_ _Noah Atkinson_,_Owen Brown_,_John Lenz_,_Mitchell Gantz_,_Justin Lee_
