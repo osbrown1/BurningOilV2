@@ -30,7 +30,9 @@ public class Enemy : MonoBehaviour
 
         if (currentHealth <= 0)
         {
+            deathSoundEffect.Play();
             Die();
+            
         }
     }
 
@@ -52,7 +54,7 @@ public class Enemy : MonoBehaviour
         GetComponent<Rigidbody2D>().simulated = false;
 
         this.enabled = false;
-        deathSoundEffect.Play();
+        
     }
 
 }
