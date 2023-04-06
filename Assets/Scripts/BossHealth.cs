@@ -13,7 +13,7 @@ public class BossHealth : MonoBehaviour
 
     public Animator animator;
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage, float delay)
     {
         if (isInvulnerable)
             return;
@@ -28,6 +28,7 @@ public class BossHealth : MonoBehaviour
         {
             animator.SetTrigger("hurt");
         }
+        Debug.Log("Hit BOSS");
     }
 
     void Die()

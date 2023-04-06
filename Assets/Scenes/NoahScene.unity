@@ -601,7 +601,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 81896643}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.12, y: -3.08, z: 0}
+  m_LocalPosition: {x: -27.84, y: -13.33, z: 0}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1152,7 +1152,7 @@ MonoBehaviour:
   enemyLayers:
     serializedVersion: 2
     m_Bits: 128
-  attackRange: 0.5
+  attackRange: 1
   attackDamage: 20
   attackRate: 2
 --- !u!114 &138104126
@@ -96741,8 +96741,9 @@ GameObject:
   - component: {fileID: 1480023935}
   - component: {fileID: 1480023934}
   - component: {fileID: 1480023933}
+  - component: {fileID: 1480023941}
   - component: {fileID: 1480023939}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Boss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96932,6 +96933,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1480023941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1480023932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 956e8ed35db864c7db5502991299768a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathSoundEffect: {fileID: 0}
+  animator: {fileID: 1480023940}
+  maxHealth: 100
 --- !u!1 &1586902802
 GameObject:
   m_ObjectHideFlags: 0
@@ -97391,6 +97407,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1948846971}
+  - component: {fileID: 1948846972}
   m_Layer: 0
   m_Name: AttackPoint
   m_TagString: Untagged
@@ -97413,6 +97430,19 @@ Transform:
   m_Father: {fileID: 138104124}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1948846972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1948846970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fb397aea710f4a77a8eaad56d7d14e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 3
 --- !u!1 &2138826018
 GameObject:
   m_ObjectHideFlags: 0

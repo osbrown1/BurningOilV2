@@ -9,8 +9,6 @@ public class Enemy : MonoBehaviour
     [SerializeField] private AudioSource deathSoundEffect;
     public Animator animator;
 
-    
-
     public int maxHealth = 100;
     int currentHealth;
 
