@@ -64,12 +64,12 @@ public class PlayerMovement : MonoBehaviour
         if (dirX > 0f)
         {
             state = MovementState.run;
-            sprite.flipX = true;
+            sprite.transform.localScale = new Vector3(-1, 1, 0);
         }
         else if (dirX < 0f)
         {
             state = MovementState.run;
-            sprite.flipX = false;
+            sprite.transform.localScale = new Vector3(1, 1, 0);
         }
         else
         {

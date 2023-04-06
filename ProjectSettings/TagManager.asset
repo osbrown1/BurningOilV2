@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Enemy
+  - Apple
   layers:
   - Default
   - TransparentFX
@@ -15,6 +17,8 @@ TagManager:
   - Enemies
   - Background
   - 
+  - Boss
+  - Player
   - 
   - 
   - 
