@@ -4,15 +4,36 @@ using UnityEngine;
 
 public class BossHealth : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+
+    public int health = 200;
+
+    public GameObject deathEffect;
+
+    public bool isInvulnerable = false;
+
+    public Animator animator;
+
+    public void TakeDamage(int damage)
     {
-        
+        if (isInvulnerable)
+            return;
+
+        health -= damage;
+
+        if (health <= 0)
+        {
+            Die();
+        }
+        else
+        {
+            animator.SetTrigger("hurt");
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    void Die()
     {
-        
+        Instantiate(deathEffect, transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
+
 }

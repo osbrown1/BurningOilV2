@@ -96,10 +96,12 @@ public class PlayerHealth : MonoBehaviour
         animator.SetBool("IsDead", true);
 
         deathSoundEffect.Play();
+
         GetComponent<Collider2D>().enabled = false;
         GetComponent<Rigidbody2D>().simulated = false;
 
         this.enabled = false;
+
     }
 
 
