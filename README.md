@@ -20,6 +20,8 @@
   ## Description
   
   A 2D Platformer made with Unity
+  
+  * Check out the Live game: https://play.unity.com/mg/other/webgl-builds-338664
 
 
 ## Technologies Used
